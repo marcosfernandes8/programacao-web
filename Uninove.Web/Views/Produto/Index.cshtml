@@ -1,0 +1,35 @@
+<h1>Lista de Produtos</h1>
+
+<table border="1">
+    <tr>
+        <th>Nome</th>
+        <th>Preço</th>
+    </tr>
+
+    @{
+        int i = 0;
+    }
+
+    @foreach (var produto in ViewBag.Produtos)
+    {
+        var preco = ViewBag.Precos[i];
+
+        <tr>
+            <td>@produto</td>
+
+            @if (preco < 100)
+            {
+                <td style="color:green">R$ @preco</td>
+            }
+            else
+            {
+                <td>R$ @preco</td>
+            }
+
+        </tr>
+
+        i++;
+    }
+</table>
+
+<p>Total: @ViewBag.Produtos.Count produtos</p>
