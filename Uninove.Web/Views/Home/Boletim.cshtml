@@ -1,0 +1,55 @@
+@{
+    var disciplinas = (List<string>)ViewBag.Disciplinas;
+    var notas = (List<double>)ViewBag.Notas;
+
+    double soma = 0;
+}
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>#</th>
+        <th>Disciplina</th>
+        <th>Nota</th>
+        <th>Status</th>
+        <th>Conceito</th>
+    </tr>
+
+    @for (int i = 0; i < disciplinas.Count; i++)
+    {
+        var nota = notas[i];
+        soma += nota;
+
+        var status = nota >= 5 ? "Aprovado" : "Reprovado";
+
+        var cor = nota >= 5 ? "green" : "red";
+
+        string conceito;
+
+        if (nota >= 9)
+            conceito = "A";
+        else if (nota >= 7)
+            conceito = "B";
+        else if (nota >= 5)
+            conceito = "C";
+        else
+            conceito = "D";
+
+        <tr style="color:@cor">
+            <td>@(i + 1)</td>
+            <td>@disciplinas[i]</td>
+            <td>@nota</td>
+            <td>@status</td>
+            <td>@conceito</td>
+        </tr>
+    }
+</table>
+
+<br />
+
+<h3>
+    Média geral:
+    @{
+        var media = disciplinas.Count > 0 ? (soma / disciplinas.Count) : 0;
+    }
+    @media
+</h3>
