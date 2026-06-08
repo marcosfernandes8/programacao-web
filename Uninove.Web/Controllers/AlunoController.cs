@@ -12,7 +12,12 @@ public class AlunoController : Controller
     [HttpPost]
     public IActionResult Cadastrar(Aluno aluno)
     {
-        return View(aluno);
+        if (!ModelState.IsValid)
+        {
+            return View(aluno);
+        }
+
+        return View("Confirmacao", aluno);
     }
 
 }
