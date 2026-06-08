@@ -1,0 +1,41 @@
+@model EnderecoViewModel
+
+<h2>Dados Recebidos</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Nome</th>
+        <td>@Model.Nome</td>
+    </tr>
+
+    <tr>
+        <th>CEP</th>
+        <td>@Model.Cep</td>
+    </tr>
+
+    <tr>
+        <th>Logradouro</th>
+        <td>@Model.Logradouro</td>
+    </tr>
+
+    <tr>
+        <th>Bairro</th>
+        <td>@Model.Bairro</td>
+    </tr>
+
+    <tr>
+        <th>Cidade</th>
+        <td>@Model.Cidade</td>
+    </tr>
+
+    <tr>
+        <th>UF</th>
+        <td>@Model.Uf</td>
+    </tr>
+
+</table>
+
+<a asp-action="Index" class="btn btn-primary">
+    Nova Consulta
+</a>
